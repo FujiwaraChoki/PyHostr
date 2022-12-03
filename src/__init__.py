@@ -57,7 +57,7 @@ class PyHost():
                     self.end_headers()
                     # Send custom reply
                     self.wfile.write(
-                        bytes(obj.handler(), "utf8"))
+                        bytes(obj["handler"](), "utf8"))
 
                     return
 
@@ -108,10 +108,17 @@ class PyHost():
         print("Server stopped.")
 
 
+def handler_func():
+    result = 1 + 1
+    return str(result)
+
+
 if __name__ == "__main__":
     server = PyHost("localhost", 8080)
     server.get(route="/", response_headers={"Content-type": "text/html"},
-               response=open("index.html", "r").read())
+               response="<h2>INDEX PAGE</h2>")
     server.get(route="/test", response_headers={"Content-type": "text/html"},
-               response=open("test.html", "r").read())
+               response="<h2>TEST PAGE</h2>")
+    server.post(
+        route="/post", response_headers={"Content-type": "application/json"}, handler=handler_func)
     server.serve()
