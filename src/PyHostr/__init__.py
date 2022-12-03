@@ -114,16 +114,28 @@ class PyHostr():
         print("Server stopped.")
 
 
+"""
+Showcasing how to use PyHostr
+"""
+
+# This is a handler function which you specify when calling the post() method.
+# NOTE: MAKE SURE TO NOT USE PARANTHESES WHEN PASSING THE FUNCTION TO THE post() METHOD
+
+
 def handler_func(args):
     return str(args).upper()
 
 
 if __name__ == "__main__":
+    # Create a PyHostr object
     server = PyHostr("localhost", 8080)
+
+    # Add a GET route
     server.get(route="/", response_headers={"Content-type": "text/html"},
                response="<h2>INDEX PAGE</h2>")
-    server.get(route="/test", response_headers={"Content-type": "text/html"},
-               response="<h2>TEST PAGE</h2>")
+    # Add a POST route
     server.post(
-        route="/post", response_headers={"Content-type": "application/json"}, handler=handler_func)
+        route="/post", response_headers={"Content-type": "application/json"}, handler=handler_func)  # Don't use parentheses when passing the function
+
+    # Start server on port 8080
     server.serve()
