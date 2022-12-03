@@ -2,3 +2,4 @@ dist/
 setup.py
 setup.cfg
 Testing/
+Post_tester.py
