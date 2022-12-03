@@ -1,4 +1,5 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import json
 
 
 class bcolors:
@@ -53,9 +54,16 @@ class PyHostr():
                     self.send_response(200)
                     # Send headers
                     self.end_headers()
-                    # Send custom reply
-                    self.wfile.write(
-                        bytes(obj["handler"](), "utf8"))
+                    # Send custom reply and parse into JSON
+                    data = self.rfile.read(
+                        int(self.headers['Content-Length']))\
+                        .decode("utf-8")\
+                        .split("&")
+                    data = {x.split("=")[0]: x.split("=")[1] for x in data}
+                    data = json.dumps(data)
+                    # data = self.rfile.read(
+                    # int(self.headers["Content-Length"])).decode("utf-8")
+                    self.wfile.write(bytes(obj["handler"](data), "utf8"))
 
                     return
 
@@ -106,9 +114,8 @@ class PyHostr():
         print("Server stopped.")
 
 
-def handler_func():
-    result = 1 + 1
-    return str(result)
+def handler_func(args):
+    return str(args).upper()
 
 
 if __name__ == "__main__":
