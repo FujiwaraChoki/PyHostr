@@ -1,0 +1,10 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+src/PyHost/__init__.py
+src/PyHost.egg-info/PKG-INFO
+src/PyHost.egg-info/SOURCES.txt
+src/PyHost.egg-info/dependency_links.txt
+src/PyHost.egg-info/requires.txt
+src/PyHost.egg-info/top_level.txt

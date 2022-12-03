@@ -1,5 +1,3 @@
-# PyHost
-
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 
@@ -18,7 +16,7 @@ class bcolors:
 routes = []
 
 
-class PyHost():
+class PyHostr():
     def __init__(self, host, port):
         self.__host = host
         self.__port = port
@@ -95,7 +93,7 @@ class PyHost():
 
     def serve(self):
         # Start server
-        server = HTTPServer((self.host, self.port), PyHost.Handler)
+        server = HTTPServer((self.host, self.port), PyHostr.Handler)
         self.success("Server started http://%s:%s" %
                      (self.host, self.port))
 
@@ -114,7 +112,7 @@ def handler_func():
 
 
 if __name__ == "__main__":
-    server = PyHost("localhost", 8080)
+    server = PyHostr("localhost", 8080)
     server.get(route="/", response_headers={"Content-type": "text/html"},
                response="<h2>INDEX PAGE</h2>")
     server.get(route="/test", response_headers={"Content-type": "text/html"},

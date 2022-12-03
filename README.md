@@ -1,17 +1,17 @@
-# PyHost
+# PyHostr
 
 Handle HTTP GET and POST requests in Python.
 
 ## Installation
 
 ```bash
-pip install pyhost
+pip install pyhostr
 ```
 
 ## Usage
 
 ```python
-from pyhost import PyHost
+from pyhostr import PyHostr
 
 # Instantiating the server
 server = PyHost("localhost", 8080)
@@ -30,4 +30,4 @@ server.serve()
 
 ## License
 
-[MIT Sami Hindi 2022 (c)](https://choosealicense.com/licenses/mit/)
+[MIT Sami Hindi 2022 (c)](LICENSE.txt)
