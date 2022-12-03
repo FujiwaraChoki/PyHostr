@@ -13,10 +13,19 @@ pip install pyhost
 ```python
 from pyhost import PyHost
 
-host = PyHost()
+# Instantiating the server
+server = PyHost("localhost", 8080)
 
-def on_get(request, response):
-    response.send("Hello World!")§
+# Creating a GET route
+server.get(route="/", response_headers={"Content-type": "text/html"},
+            response="<h2>INDEX PAGE</h2>")
+
+# Creating a POST route
+server.post(
+    route="/post", response_headers={"Content-type": "application/json"}, handler=handler_func)
+
+# Finally, start the server
+server.serve()
 ```
 
 ## License
