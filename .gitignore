@@ -1,8 +1,10 @@
 dist/
-setup.py
-setup.cfg
 Testing/
 Post_tester.py
 .history/
 *test*.py
 PyHostr.egg-info/
+*.rst
+MANIFEST
+MANIFEST.in
+.vscode/
