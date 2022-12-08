@@ -1,9 +1,0 @@
-LICENSE.txt
-README.md
-setup.cfg
-setup.py
-src/PyHostr/__init__.py
-src/PyHostr.egg-info/PKG-INFO
-src/PyHostr.egg-info/SOURCES.txt
-src/PyHostr.egg-info/dependency_links.txt
-src/PyHostr.egg-info/top_level.txt

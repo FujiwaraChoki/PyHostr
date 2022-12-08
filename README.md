@@ -5,13 +5,13 @@ Handle HTTP GET and POST requests in Python.
 ## Installation
 
 ```bash
-pip install pyhostr
+pip install PyHostr
 ```
 
 ## Usage
 
 ```python
-from pyhostr import PyHostr
+from PyHostr import PyHostr
 
 # Instantiating the server
 server = PyHost("localhost", 8080)
