@@ -5,3 +5,4 @@ Testing/
 Post_tester.py
 .history/
 *test*.py
+PyHostr.egg-info/
