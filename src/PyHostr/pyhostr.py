@@ -36,11 +36,14 @@ class PyLogger():
     @property
     def file_name(self):
         """
-        Returns the file name of the logger
+        Returns the file name of the logger.
         """
         return self.__file_name
 
     def store(self, message):
+        """
+        Stores data in the log file, provided in the constructor of the `Logger` Object.
+        """
         log_message = None
         try:
             log_message = json.loads(str(message))
