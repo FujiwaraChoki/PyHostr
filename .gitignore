@@ -4,3 +4,4 @@ setup.cfg
 Testing/
 Post_tester.py
 .history/
+*test*.py

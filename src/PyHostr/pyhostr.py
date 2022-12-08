@@ -17,6 +17,49 @@ class bcolors:
 routes = []
 
 
+class PyLogger():
+    def __init__(self, file_name):
+        self.__file_name = file_name + ".json"
+        self.__result = None
+
+        # Create file if it doesn't exist
+        with open(self.file_name, "a") as file:
+            pass
+
+    @property
+    def result(self):
+        """
+        Returns the result of the last read() call
+        """
+        return self.__result
+
+    @property
+    def file_name(self):
+        """
+        Returns the file name of the logger
+        """
+        return self.__file_name
+
+    def store(self, message):
+        log_message = None
+        try:
+            log_message = json.loads(str(message))
+        except Exception as err:
+            PyHostr.error("Invalid JSON: " + str(err))
+            return
+        with open(self.file_name, "a") as file:
+            file.write(json.dumps(log_message) + "\n")
+
+    def read(self):
+        with open(self.file_name, "r") as file:
+            self.__result = json.loads(file.read())
+            return self.result
+    
+    def clear(self):
+        with open(self.file_name, "w") as file:
+            file.truncate(0)
+
+
 class PyHostr():
     def __init__(self, host, port):
         self.__host = host
