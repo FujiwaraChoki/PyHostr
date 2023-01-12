@@ -14,7 +14,7 @@ pip install PyHostr
 from PyHostr import PyHostr
 
 # Instantiating the server
-server = PyHost("localhost", 8080)
+server = PyHostr("localhost", 8080)
 
 # Creating a GET route
 server.get(route="/", response_headers={"Content-type": "text/html"},
